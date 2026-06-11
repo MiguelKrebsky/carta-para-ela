@@ -78,6 +78,7 @@ button{
     font-size:400px;
     z-index:1000;
     pointer-events:none;
+    font-style:normal;
     animation:crescer 3s ease-out forwards;
 }
 
@@ -205,11 +206,23 @@ button{
         </p>
 
         <p>
+            Lembro até hoje da nossa primeira conversa no clube, no campão. Você estava tão tímida, com aquele sorriso envergonhado que me conquistou de primeira. Eu já sabia ali que queria te conhecer mais, que você era especial.
+        </p>
+
+        <p>
             Você é a pessoa mais perfeita e incrível que eu já tive o prazer de conhecer, vivo e morro por você meu amor. Você é linda, eu te amo demais e quero passar o resto da eternidade ao seu lado, porque sem você eu sou um vazio.
         </p>
 
         <p>
             Penso todos os dias, todas as horas, todos os minutos e segundos em você. Saiba que você é o meu porto seguro, a pessoa que eu posso chamar de amiga, namorada, futura noiva, futura esposa e futura mãe dos meus filhos.
+        </p>
+
+        <p>
+            E saiba de uma coisa: você é perfeita exatamente do jeito que é. Não mude nada, porque cada detalhe seu — seu sorriso, seu jeito, suas manias — é o que me faz te amar ainda mais.
+        </p>
+
+        <p>
+            Mal posso esperar pelo nosso futuro juntos na Itália(ou em qualquer lugar no mundo), numa casa linda com nossos doguinhos, vendo as estrelas com você, vivendo a vida que a gente sempre sonhou. Você, eu, eles e muito amor. É isso que me motiva todos os dias.
         </p>
 
         <p>
@@ -229,6 +242,12 @@ button{
 
 
         </div>
+
+        <br>
+
+        <p>
+            <em>P.S. — Cada linha de código feita aqui foi com muito amor e muito choro, mas com muito carinho, porque tudo que faço por você vale mais que tudo nesse mundo ❤️</em>
+        </p>
 
         <br>
 
@@ -255,88 +274,84 @@ button{
 
 <script>
 
+// Exibe a primeira pergunta de confirmação "Tem certeza?"
 function confirmarAbertura(){
     document.getElementById("confirmacao1").style.display = "block";
 }
 
+// Avança para a segunda confirmação "Você realmente tem certeza?"
 function proximaEtapa(){
-    document.getElementById("confirmacao1").style.display = "none";
-    document.getElementById("confirmacao2").style.display = "block";
+    document.getElementById("confirmacao1").style.display = "none"; // Esconde a primeira pergunta
+    document.getElementById("confirmacao2").style.display = "block"; // Mostra a segunda
 }
 
+// Resposta errada — exibe o texto gigante de zoeira
 function respostaErrada(){
-    document.getElementById("confirmacao1").style.display = "none";
-    document.getElementById("erro").style.display = "block";
+    document.getElementById("confirmacao1").style.display = "none"; // Esconde a pergunta
+    document.getElementById("erro").style.display = "block"; // Mostra "RESPOSTA ERRADA ZÉ BUNDA"
 }
 
+// Abre a carta com todo o conteúdo
 function abrirCarta(){
-
-    document.getElementById("inicio").style.display = "none";
-    document.getElementById("carta").style.display = "block";
-
-    document.getElementById("musica").play();
-
-    atualizarContador();
+    document.getElementById("inicio").style.display = "none"; // Esconde tela inicial
+    document.getElementById("carta").style.display = "block"; // Revela a carta
+    document.getElementById("musica").play(); // Inicia a música de fundo
+    atualizarContador(); // Calcula e exibe os dias juntos
 }
 
+// Calcula quantos dias desde o início do namoro
 function atualizarContador(){
-
-    const inicioNamoro = new Date("2021-02-17");
-
-    const hoje = new Date();
-
-    const diferenca =
-        Math.floor(
-            (hoje - inicioNamoro) /
-            (1000*60*60*24)
-        );
-
-    document.getElementById("contador").innerHTML =
-        "Estamos juntos há " + diferenca + " dias ❤️";
+    const inicioNamoro = new Date("2021-02-16"); // Data do início do namoro
+    const hoje = new Date(); // Data atual
+    const diferenca = Math.floor((hoje - inicioNamoro) / (1000*60*60*24)); // Diferença em dias
+    document.getElementById("contador").innerHTML = "Estamos juntos há " + diferenca + " dias ❤️"; // Exibe na tela
 }
 
-var fotoAtual = 1;
-var totalFotos = 14;
+var fotoAtual = 1; // Controla qual foto está sendo exibida no slideshow
+var totalFotos = 14; // Total de fotos disponíveis
 
+// Abre o slideshow em tela cheia
 function abrirSlideshow(){
-    document.getElementById("slideshow-page").style.display = "block";
-    document.getElementById("slideshow-img").src = "foto1.jpg";
-    fotoAtual = 1;
+    document.getElementById("slideshow-page").style.display = "block"; // Mostra a tela preta do slideshow
+    document.getElementById("slideshow-img").src = "foto1.jpg"; // Carrega a primeira foto
+    fotoAtual = 1; // Reseta para a primeira foto
 }
 
+// Fecha o slideshow
 function fecharSlideshow(){
-    document.getElementById("slideshow-page").style.display = "none";
+    document.getElementById("slideshow-page").style.display = "none"; // Esconde o slideshow
 }
 
+// Navega entre as fotos (1 = próximo, -1 = anterior)
 function mudarFoto(direcao){
-    fotoAtual += direcao;
-    if(fotoAtual < 1) fotoAtual = totalFotos;
-    if(fotoAtual > totalFotos) fotoAtual = 1;
-    document.getElementById("slideshow-img").src = "foto" + fotoAtual + ".jpg";
+    fotoAtual += direcao; // Avança ou volta uma foto
+    if(fotoAtual < 1) fotoAtual = totalFotos; // Se passar da primeira, vai pra última
+    if(fotoAtual > totalFotos) fotoAtual = 1; // Se passar da última, volta pra primeira
+    document.getElementById("slideshow-img").src = "foto" + fotoAtual + ".jpg"; // Atualiza a imagem
 }
 
+// Cria o efeito de coração gigante + explosão de corações
 function chuvaCoracoes(){
-
-    const grande = document.createElement("div");
-    grande.className = "coracao-grande";
-    grande.innerHTML = "❤️";
-    document.body.appendChild(grande);
+    const grande = document.createElement("div"); // Cria o elemento do coração grande
+    grande.className = "coracao-grande"; // Aplica classe com animação de crescimento
+    grande.innerHTML = "❤️"; // Insere o emoji de coração
+    document.body.appendChild(grande); // Adiciona na tela
 
     setTimeout(()=>{
-        grande.remove();
+        grande.remove(); // Remove o coração grande após 3 segundos
 
-        for(let i=0;i<40;i++){
-            const pequeno = document.createElement("div");
-            pequeno.className = "coracao-explosao";
-            pequeno.innerHTML = "❤️";
-            pequeno.style.setProperty("--dx", (Math.random()-0.5)*600+"px");
-            pequeno.style.setProperty("--dy", (Math.random()-0.5)*600+"px");
-            pequeno.style.left = "50%";
-            pequeno.style.top = "50%";
-            document.body.appendChild(pequeno);
-            setTimeout(()=> pequeno.remove(), 800);
+        for(let i=0;i<40;i++){ // Gera 40 corações pequenos
+            const pequeno = document.createElement("div"); // Cria cada coração pequeno
+            pequeno.className = "coracao-explosao"; // Aplica classe com animação de explosão
+            pequeno.innerHTML = "❤️"; // Insere o emoji de coração
+            pequeno.style.setProperty("--dx", (Math.random()-0.5)*600+"px"); // Direção aleatória no eixo X
+            pequeno.style.setProperty("--dy", (Math.random()-0.5)*600+"px"); // Direção aleatória no eixo Y
+            pequeno.style.left = "50%"; // Posiciona no centro horizontal
+            pequeno.style.top = "50%"; // Posiciona no centro vertical
+            document.body.appendChild(pequeno); // Adiciona na tela
+            setTimeout(()=> pequeno.remove(), 800); // Remove cada coração após 0.8s
         }
-    }, 3000);
+    }, 3000); // Aguarda 3 segundos (tempo da animação do coração grande)
 }
 
 </script>
