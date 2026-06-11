@@ -78,7 +78,6 @@ button{
     font-size:400px;
     z-index:1000;
     pointer-events:none;
-    font-style:normal;
     animation:crescer 3s ease-out forwards;
 }
 
@@ -147,6 +146,7 @@ button{
 
 #slideshow-page .prev{ left:10px; }
 #slideshow-page .next{ right:10px; }
+
 </style>
 </head>
 <body>
@@ -161,9 +161,25 @@ button{
         <h1>📩 Você recebeu uma carta</h1>
         <p>Clique para abrir</p>
 
-        <button onclick="abrirCarta()">
+        <button onclick="confirmarAbertura()">
             Abrir Carta ❤️
         </button>
+
+        <div id="confirmacao1" style="display:none; margin-top:20px;">
+            <p style="font-size:20px; color:#d10050;">Tem certeza? 🤔</p>
+            <button onclick="proximaEtapa()" style="background:#ff69b4; color:white;">Sim 💕</button>
+            <button onclick="respostaErrada()" style="background:#666; color:white; margin-left:10px;">Não 😅</button>
+        </div>
+
+        <div id="confirmacao2" style="display:none; margin-top:20px;">
+            <p style="font-size:20px; color:#d10050;">Você realmente tem certeza? 🤔</p>
+            <p style="font-size:16px; color:#888;">contém lágrimas de amor 💧❤️</p>
+            <button onclick="abrirCarta()" style="background:#ff69b4; color:white;">Sim, quero abrir 💌</button>
+        </div>
+
+        <div id="erro" style="display:none; margin-top:20px;">
+            <p style="font-size:60px; font-weight:bold; color:#ff0000; font-family:'Dancing Script', cursive;">RESPOSTA ERRADA ZÉ BUNDA</p>
+        </div>
     </div>
 
     <div id="carta">
@@ -189,23 +205,11 @@ button{
         </p>
 
         <p>
-            Lembro até hoje da nossa primeira conversa no clube, no campão. Você estava tão tímida, com aquele sorriso envergonhado que me conquistou de primeira. Eu já sabia ali que queria te conhecer mais, que você era especial.
-        </p>
-
-        <p>
-            Você é a pessoa mais perfeita e incrível que eu já tive o prazer de conhecer. Você é linda, eu te amo demais e quero passar o resto da eternidade ao seu lado, porque sem você eu sou um vazio.
+            Você é a pessoa mais perfeita e incrível que eu já tive o prazer de conhecer, vivo e morro por você meu amor. Você é linda, eu te amo demais e quero passar o resto da eternidade ao seu lado, porque sem você eu sou um vazio.
         </p>
 
         <p>
             Penso todos os dias, todas as horas, todos os minutos e segundos em você. Saiba que você é o meu porto seguro, a pessoa que eu posso chamar de amiga, namorada, futura noiva, futura esposa e futura mãe dos meus filhos.
-        </p>
-
-        <p>
-            E saiba de uma coisa: você é perfeita exatamente do jeito que é. Não mude nada, porque cada detalhe seu — seu sorriso, seu jeito, suas manias — é o que me faz te amar ainda mais.
-        </p>
-
-        <p>
-            Mal posso esperar pelo nosso futuro juntos na Europa, numa casa linda com nossos doguinhos, vivendo a vida que a gente sempre sonhou. Você, eu, eles e muito amor. É isso que me motiva todos os dias.
         </p>
 
         <p>
@@ -225,12 +229,6 @@ button{
 
 
         </div>
-
-        <br>
-
-        <p>
-            <em>P.S. — Cada linha de código feita aqui foi com muito amor e muito choro, mas com muito carinho, porque tudo que faço por você vale mais que tudo nesse mundo ❤️</em>
-        </p>
 
         <br>
 
@@ -256,6 +254,20 @@ button{
 </div>
 
 <script>
+
+function confirmarAbertura(){
+    document.getElementById("confirmacao1").style.display = "block";
+}
+
+function proximaEtapa(){
+    document.getElementById("confirmacao1").style.display = "none";
+    document.getElementById("confirmacao2").style.display = "block";
+}
+
+function respostaErrada(){
+    document.getElementById("confirmacao1").style.display = "none";
+    document.getElementById("erro").style.display = "block";
+}
 
 function abrirCarta(){
 
