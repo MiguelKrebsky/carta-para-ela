@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head<link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400&family=Parisienne&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,18 +13,19 @@
 
 body{
     margin:0;
-    font-family:'Parisienne', sans-serif;
+    font-family:'Dancing Script', cursive;
     background:linear-gradient(135deg,#ffd1dc,#fff0f5);
     display:flex;
     justify-content:center;
     align-items:center;
     min-height:100vh;
     overflow-x:hidden;
-    h1{
+}
+
+h1{
     font-family:'Dancing Script', cursive;
     font-size:48px;
     color:#d10050;
-    }
 }
 
 .container{
@@ -38,6 +40,7 @@ body{
     padding:30px;
     border-radius:20px;
     box-shadow:0 0 20px rgba(0,0,0,0.2);
+    font-size:22px;
 }
 
 button{
@@ -49,7 +52,8 @@ button{
 }
 
 .foto{
-    width:200px;
+    width:100%;
+    max-width:200px;
     border-radius:15px;
     margin:10px;
 }
@@ -120,7 +124,7 @@ button{
         </p>
 
         <p>
-            <strong> <h3>você torna meus dias melhores.</h3></strong>
+            <strong>você torna meus dias melhores.</strong>
         </p>
 
         <p>
@@ -135,12 +139,12 @@ button{
 
         <div id="galeria">
 
-            <img src="foto1.jpg" class="foto">
-            <img src="foto2.jpg" class="foto">
-            <img src="foto3.jpg" class="foto">
-            <img src="foto4.jpg" class="foto">
-            <img src="foto5.jpg" class="foto">
-            <img src="foto6.jpg" class="foto">
+            <img src="foto1.jpg" class="foto" alt="Foto 1">
+            <img src="foto2.jpg" class="foto" alt="Foto 2">
+            <img src="foto3.jpg" class="foto" alt="Foto 3">
+            <img src="foto4.jpg" class="foto" alt="Foto 4">
+            <img src="foto5.jpg" class="foto" alt="Foto 5">
+            <img src="foto6.jpg" class="foto" alt="Foto 6">
 
 
         </div>
@@ -148,7 +152,7 @@ button{
         <br>
 
         <button onclick="chuvaCoracoes()">
-            <sotrong><h3>Eu te amo ❤️</h3></sotrong>
+            <strong>Eu te amo ❤️</strong>
         </button>
 
     </div>
